@@ -1,13 +1,13 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject private var game = TicTacToeGame() // Manage game state
+    @StateObject private var game = TicTacToeGame()
     
     var body: some View {
         VStack {
-            Spacer() // Add some space at the top
+            Spacer()
             
-            Text("Tic Tac Toe") // Title
+            Text("Tic Tac Toe")
                 .font(.largeTitle)
                 .fontWeight(.bold)
             
@@ -19,17 +19,15 @@ struct ContentView: View {
                         ForEach(0..<game.board[row].count, id: \.self) { col in
                             cellView(for: game.board[row][col].player)
                                 .onTapGesture {
-                                    game.placeMark(at: row, col: col) // Handle player tap
+                                    game.placeMark(at: row, col: col)
                                 }
-                                .frame(width: 50, height: 50) // Set square size
-                                .background(Color.gray.opacity(0.2)) // Light border for each square
+                                .frame(width: 50, height: 50)
+                                .background(Color.gray.opacity(0.2))
                         }
                     }
                 }
             }
-            .frame(width: 200, height: 200) // Set board size
-            
-            // ... (rest of the code)
+            .frame(width: 200, height: 200)
             
         }
     }
